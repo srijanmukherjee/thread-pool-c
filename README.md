@@ -17,7 +17,7 @@ Include the `src/tpool.h` file into your project, and add `src/tpool.c` during c
 
 1. Creating a thread pool
 ```c
-    int tpool_init(tpool *pool, size_t thread_count);
+int tpool_init(tpool *pool, size_t thread_count);
 ```
 
 2. Adding a task to the pool

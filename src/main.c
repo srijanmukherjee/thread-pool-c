@@ -25,13 +25,13 @@ void add_task(int _) {
 
 int main(void) {
     size_t thread_count = 64;
-    // cpu_set_t cpuset;
+    cpu_set_t cpuset;
 
     signal(SIGINT, interrupt);
     signal(SIGUSR1, add_task);
 
-    // if (sched_getaffinity(0, sizeof(cpuset), &cpuset) == 0)
-    //     thread_count = CPU_COUNT(&cpuset);
+    if (sched_getaffinity(0, sizeof(cpuset), &cpuset) == 0)
+        thread_count = CPU_COUNT(&cpuset);
 
     printf("thread count: %ld\n", thread_count);
 
